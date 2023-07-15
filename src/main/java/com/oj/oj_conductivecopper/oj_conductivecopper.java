@@ -8,6 +8,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -28,6 +29,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
+
+import com.oj.oj_conductivecopper.init.EntityInit;
 import com.oj.oj_conductivecopper.init.ItemInit;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -43,6 +46,7 @@ public class oj_conductivecopper
             .icon(() -> ItemInit.SMALL_BATTERY.get().getDefaultInstance())
             .displayItems((parameters, output) -> {
                 output.accept(ItemInit.SMALL_BATTERY.get());
+                output.accept(ItemInit.SHOCK_ARROW.get());
             })
             .build());
 
@@ -53,13 +57,14 @@ public class oj_conductivecopper
 
         //BLOCKS.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
+        EntityInit.ENTITIES.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
     }
-
+    
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         LOGGER.info("HELLO FROM COMMON SETUP");

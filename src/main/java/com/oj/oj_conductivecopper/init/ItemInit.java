@@ -1,6 +1,8 @@
 package com.oj.oj_conductivecopper.init;
 
 import com.oj.oj_conductivecopper.oj_conductivecopper;
+import com.oj.oj_conductivecopper.common.entities.projectiles.ShockArrow;
+import com.oj.oj_conductivecopper.common.item.ShockArrowItem;
 
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
@@ -13,4 +15,6 @@ public class ItemInit {
 	
 	
 	public static final RegistryObject<Item> SMALL_BATTERY = ITEMS.register("small_battery", () -> new Item(new Item.Properties()));
+	
+	public static final RegistryObject<ShockArrowItem> SHOCK_ARROW = ITEMS.register("shock_arrow", () -> new ShockArrowItem(new Item.Properties()));
 }
