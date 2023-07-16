@@ -2,7 +2,9 @@ package com.oj.oj_conductivecopper;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -32,6 +35,7 @@ import org.slf4j.Logger;
 
 import com.oj.oj_conductivecopper.init.EntityInit;
 import com.oj.oj_conductivecopper.init.ItemInit;
+import com.oj.oj_conductivecopper.renderer.entity.RenderShockArrow;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(oj_conductivecopper.MODID)
@@ -95,6 +99,14 @@ public class oj_conductivecopper
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+        }
+        
+        //thanks choonster part 3?
+        @SuppressWarnings("unchecked")
+		@SubscribeEvent
+        public static void register(final EntityRenderersEvent.RegisterRenderers event) {
+    		event.registerEntityRenderer(EntityInit.SHOCK_ARROW.get(), 
+    				context -> new RenderShockArrow(context, new ResourceLocation(MODID, "textures/entity/shock_arrow.png")));
         }
     }
 }

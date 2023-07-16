@@ -18,7 +18,7 @@ public class EntityInit {
 	public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES,
 			oj_conductivecopper.MODID);
 	
-	public static final RegistryObject<EntityType<ShockArrow>> MOD_ARROW = registerEntityType("shock_arrow",
+	public static final RegistryObject<EntityType<ShockArrow>> SHOCK_ARROW = registerEntityType("shock_arrow",
 			() -> EntityType.Builder.<ShockArrow>of((ShockArrow::new), MobCategory.MISC)
 					.sized(0.5f, 0.5f)
 	);

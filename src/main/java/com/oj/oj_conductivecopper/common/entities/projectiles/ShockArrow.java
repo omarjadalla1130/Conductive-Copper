@@ -1,5 +1,6 @@
 package com.oj.oj_conductivecopper.common.entities.projectiles;
 
+import com.oj.oj_conductivecopper.init.EntityInit;
 import com.oj.oj_conductivecopper.init.ItemInit;
 
 import net.minecraft.world.entity.EntityType;
@@ -17,6 +18,14 @@ public class ShockArrow extends Arrow{
 	public ShockArrow(Level p_36866_, LivingEntity p_36867_) {
 		super(p_36866_, p_36867_);
 		// TODO Auto-generated constructor stub
+	}
+	
+	//allows it to render its own entity texture
+	@Override
+	public EntityType<?> getType() {
+		// TODO Auto-generated method stub
+		return EntityInit.SHOCK_ARROW.get();
+				
 	}
 	
 	public ItemStack getPickupItem() {
