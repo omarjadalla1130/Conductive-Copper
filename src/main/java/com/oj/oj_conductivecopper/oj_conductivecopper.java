@@ -35,6 +35,7 @@ import org.slf4j.Logger;
 
 import com.oj.oj_conductivecopper.init.EntityInit;
 import com.oj.oj_conductivecopper.init.ItemInit;
+import com.oj.oj_conductivecopper.init.MobEffectsInit;
 import com.oj.oj_conductivecopper.renderer.entity.RenderShockArrow;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -62,6 +63,8 @@ public class oj_conductivecopper
         //BLOCKS.register(modEventBus);
         ItemInit.ITEMS.register(modEventBus);
         EntityInit.ENTITIES.register(modEventBus);
+        MobEffectsInit.EFFECTS.register(modEventBus);
+        
         CREATIVE_MODE_TABS.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
