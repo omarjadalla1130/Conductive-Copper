@@ -13,6 +13,5 @@ public class MobEffectsInit {
 	public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, oj_conductivecopper.MODID);
 	
 	public static final RegistryObject<ShockEffect> SHOCK = EFFECTS.register("shock",
-			() -> new ShockEffect(MobEffectCategory.HARMFUL, 2)
-	);
+			() -> new ShockEffect(MobEffectCategory.HARMFUL, 0));
 }

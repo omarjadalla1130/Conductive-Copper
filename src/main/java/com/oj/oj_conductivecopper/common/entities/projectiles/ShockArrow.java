@@ -1,14 +1,21 @@
 package com.oj.oj_conductivecopper.common.entities.projectiles;
 
+import java.util.Collection;
+import java.util.Set;
+
+import com.google.common.collect.Sets;
 import com.oj.oj_conductivecopper.init.EntityInit;
 import com.oj.oj_conductivecopper.init.ItemInit;
+import com.oj.oj_conductivecopper.init.MobEffectsInit;
 
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 
@@ -36,15 +43,9 @@ public class ShockArrow extends Arrow{
 	}
 	
 	@Override
-	public void setEffectsFromItem(ItemStack p_36879_) {
-		// TODO Auto-generated method stub
-		super.setEffectsFromItem(new ItemStack(Items.ARROW)); //need to make a custom effect: shock
-	}
-	
-	@Override
-	protected void onHitEntity(EntityHitResult p_36757_) {
-		// TODO Auto-generated method stub
-		System.out.println("PENIS PENIS PENIS PENIS PENIS");
+	protected void doPostHurtEffects(LivingEntity p_36873_) {
+		MobEffectInstance shockeffect = new MobEffectInstance(MobEffectsInit.SHOCK.get(), 500); //second arg is tick duration
+		p_36873_.addEffect(shockeffect, (Entity) this.getEffectSource());
 	}
 	
 }
